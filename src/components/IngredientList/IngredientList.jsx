@@ -1,0 +1,15 @@
+// src/components/IngredientList/IngredientList.jsx
+
+const IngredientList = (props) => {
+  return (
+    <ul>
+        {props.availableIngredients.map((ingredient, index) => (
+            <li key={index} style={{ backgroundColod: ingredient.color }}>
+                <button onClick={() => props.addToBurger(ingredient)}>+</button>
+            </li>
+        ))}
+    </ul>
+    );
+};
+
+export default IngredientList;
