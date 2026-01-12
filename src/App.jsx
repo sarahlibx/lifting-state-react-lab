@@ -23,22 +23,28 @@ const App = () => {
     { name: 'Swiss Cheese', color: '#F1E1A8' },
   ];
 
-  const [stack, setStack] = useState({});  
+  const [stack, setStack] = useState([]);  
 
-  const addToBurger = (props) => {
-
+  const addToBurger = (burgerAdd) => {
+    const burgerBuild = [...stack, burgerAdd];
+    setStack(burgerBuild);
   };
 
-  const removeFromBurger = (props) => {
-
+  const removeFromStack = (burgerRemove) => {
+    const undoStack = stack.filter((ingredient, index) => index !== burgerRemove);
+    setStack(undoStack);
   };
 
   return (
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList availableIngredients={availableIngredients} />
-        <BurgerStack stack={stack} />
+        <IngredientList 
+          availableIngredients={availableIngredients} 
+          addToBurger={addToBurger} />
+        <BurgerStack 
+          stack={stack} 
+          removeFromStack={removeFromStack} />
       </section>
     </main>
   );

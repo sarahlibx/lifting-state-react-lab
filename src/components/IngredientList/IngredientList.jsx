@@ -4,7 +4,8 @@ const IngredientList = (props) => {
   return (
     <ul>
         {props.availableIngredients.map((ingredient, index) => (
-            <li key={index} style={{ backgroundColod: ingredient.color }}>
+            <li key={index} style={{ backgroundColor: ingredient.color }}>
+                {ingredient.name}
                 <button onClick={() => props.addToBurger(ingredient)}>+</button>
             </li>
         ))}
